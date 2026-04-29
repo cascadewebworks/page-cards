@@ -25,27 +25,40 @@ The following CFs and/pr CPTs are required for the various source options:
 
 **Child Pages** — no setup required for basic use. Two optional custom fields can be used:
 
-| Meta Key | Value | Note |
+| Meta Key | Type/Value | Note |
 |---|---|---|
-| `exclude_from_child_pages` | `1` | Hides the page from all Child Pages blocks |
-| `page_description` | Any text | Used as the card subtitle when Subtitle Source is set to *Custom Field: page_description* |
+| `exclude_from_child_pages` | True/False - default to false | Hides the page from all Child Pages blocks |
+| `page_description` | Text Field | Used as the card subtitle when Subtitle Source is set to *Custom Field: page_description* |
 
 **Custom Post Type** — requires a CPT that is registered as both `public` and `show_in_rest` (so it appears in the REST API). The CPT is designated in the block setup, so the slug can be set to whatever the user wants.
 The block reads icon data from post meta, so each post in the CPT needs the following fields:
 
-| Meta Key | Purpose | Note |
+| Meta Key | Type/Value | Note |
 |---|---|---|
-| `<cpt_name>_icon` | Icon name or class string | Cards render without an icon if absent |
-| `<cpt_name>_icon_type` | Icon library (`mdi`, `fa`, `dashicons`, `svg`) | Defaults to MDI if absent |
+| `<cpt_name>_icon` | Text Field - icon name or class string | Cards render without an icon if absent |
+| `<cpt_name>_icon_type` | Select Field - choices: `mdi`, `fa`, `dashicons`, `svg` | Defaults to MDI if absent |
 
 The meta key names are defaults and can be changed per-block or in **Default Settings**. Any tool that writes post meta works — ACF, Meta Box, Code Snippets, or direct `update_post_meta()` calls.
 
-Subtitle data can also optionally be drawn from a custom field 
-| Meta Key | Purpose | Note |
-|---|---|---|
-| `<cpt_name>_subtitle` | Subtitle text | Used as the card subtitle when Subtitle Source is set to *Custom Field |
+Description/Subtitle data can also optionally be drawn from a custom field 
 
- See [Custom Post Type Setup](#custom-post-type-setup) for an example ACF field group.
+| Meta Key | Type/Value | Note |
+|---|---|---|
+| `<cpt_name>_page_description` | Text Field | Used as the card subtitle when Subtitle Source is set to *Custom Field |
+
+---
+
+## Custom Post Type Setup
+
+For the CPT source to display icons, each post needs meta fields for the icon name and (optionally) icon type. The default field names are `cpt_icon` and `cpt_icon_type`, but any meta key names work — configure them in the block settings or in **Default Settings**.
+
+Example ACF field group configuration:
+
+| Field | Meta Key | Type | Notes |
+|---|---|---|---|
+| Icon Type | `cpt_icon_type` | Select | Choices: `mdi`, `fa`, `dashicons`, `svg` |
+| Icon | `cpt_icon` | Text | Icon name or class string per the table above |
+
 
 ---
 
@@ -121,16 +134,3 @@ The plugin loads icon libraries on-demand based on the icon type selected.
 | **Font Awesome** | Full class string — e.g. `fa-solid fa-house`, `fa-regular fa-envelope` | [fontawesome.com/icons](https://fontawesome.com/icons) |
 | **Dashicons** | Name without the `dashicons-` prefix — e.g. `admin-home`, `format-image` | [developer.wordpress.org/resource/dashicons](https://developer.wordpress.org/resource/dashicons/) |
 | **Custom Image / SVG** | Image URL selected from the media library | — |
-
----
-
-## Custom Post Type Setup
-
-For the CPT source to display icons, each post needs meta fields for the icon name and (optionally) icon type. The default field names are `cpt_icon` and `cpt_icon_type`, but any meta key names work — configure them in the block settings or in **Default Settings**.
-
-Example ACF field group configuration:
-
-| Field | Meta Key | Type | Notes |
-|---|---|---|---|
-| Icon Type | `cpt_icon_type` | Select | Choices: `mdi`, `fa`, `dashicons`, `svg` |
-| Icon | `cpt_icon` | Text | Icon name or class string per the table above |
