@@ -19,7 +19,7 @@ Updates are delivered through the standard WordPress update mechanism — you wi
 
 ### Prerequisites by source type
 
-The following CFs and/pr CPTs are required for the various source options:
+The following CFs and/or CPTs are required for the various source options:
 
 **Custom Entries** — no setup required. All content is entered directly in the block editor.
 
@@ -38,13 +38,13 @@ The block reads icon data from post meta, so each post in the CPT needs the foll
 | `<cpt_name>_icon` | Text Field - icon name or class string | Cards render without an icon if absent |
 | `<cpt_name>_icon_type` | Select Field - choices: `mdi`, `fa`, `dashicons`, `svg` | Defaults to MDI if absent |
 
-The meta key names are defaults and can be changed per-block or in **Default Settings**. Any tool that writes post meta works — ACF, Meta Box, Code Snippets, or direct `update_post_meta()` calls.
+The meta key names default to `cpt_icon` and `cpt_icon_type` but should be changed to match your CPT's field names, either per-block or in **Default Settings**. Any tool that writes post meta works — ACF, Meta Box, Code Snippets, or direct `update_post_meta()` calls.
 
-Description/Subtitle data can also optionally be drawn from a custom field 
+Description/Subtitle data can also optionally be drawn from a custom field.
 
 | Meta Key | Type/Value | Note |
 |---|---|---|
-| `<cpt_name>_page_description` | Text Field | Used as the card subtitle when Subtitle Source is set to *Custom Field |
+| `<cpt_name>_page_description` | Text Field | Used as the card subtitle when Subtitle Source is set to *Custom Field* |
 
 ---
 
