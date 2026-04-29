@@ -1,0 +1,183 @@
+.child-pages-grid-wrapper {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.child-pages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .child-pages-grid--cols-1 { grid-template-columns: 1fr; }
+    .child-pages-grid--cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .child-pages-grid--cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .child-pages-grid--cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Shared */
+.child-page-card {
+    text-decoration: none !important;
+}
+
+.child-page-card:hover,
+.child-page-card:focus {
+    text-decoration: none;
+}
+
+/* ── Rounded style ───────────────────────────────────────────────────────── */
+
+.child-page-card--rounded {
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    border-radius: 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.child-page-card--rounded:hover,
+.child-page-card--rounded:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.child-page-card--rounded .child-page-icon {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.child-page-card--rounded .child-page-icon i,
+.child-page-card--rounded .child-page-icon span {
+    font-size: 32px;
+    width: 32px;
+    text-align: center;
+}
+
+.child-page-card--rounded .child-page-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.child-page-card--rounded .child-page-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 2.0em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.child-page-card--rounded .child-page-content p {
+    margin: 0;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* ── Flat style ──────────────────────────────────────────────────────────── */
+
+.child-page-card--flat {
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    border-radius: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.child-page-card--flat:hover,
+.child-page-card--flat:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.child-page-card--flat .child-page-icon {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.child-page-card--flat .child-page-icon i,
+.child-page-card--flat .child-page-icon span {
+    font-size: 32px;
+    width: 32px;
+    text-align: center;
+}
+
+.child-page-card--flat .child-page-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.child-page-card--flat .child-page-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 2.0em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.child-page-card--flat .child-page-content p {
+    margin: 0;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* ── Guide style ─────────────────────────────────────────────────────────── */
+
+.child-page-card--guide {
+    background: #ffffff;
+    border: 1px solid #e0dcc5;
+    border-left-width: 6px;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.child-page-card--guide:hover,
+.child-page-card--guide:focus {
+    background-color: #fdfdfd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: scale(1.02);
+}
+
+.child-page-card--guide .unit-main {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.child-page-card--guide .unit-icon {
+    flex-shrink: 0;
+}
+
+.child-page-card--guide .unit-icon i,
+.child-page-card--guide .unit-icon span {
+    font-size: 32px;
+    width: 32px;
+    display: block;
+    text-align: center;
+}
+
+.child-page-card--guide .unit-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+}
+
+.child-page-card--guide .unit-info h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.child-page-card--guide .unit-info p {
+    margin: 5px 0 0;
+    font-size: 0.95rem;
+}
