@@ -17,6 +17,27 @@ Once activated, the **Page Cards** block is available in the Gutenberg block ins
 
 Updates are delivered through the standard WordPress update mechanism — you will see the usual update notification in WP Admin when a new release is available.
 
+### Prerequisites by source type
+
+**Custom Entries** — no setup required. All content is entered directly in the block editor.
+
+**Child Pages** — no setup required for basic use. Two optional custom fields are recognized on individual pages:
+
+| Meta Key | Value | Effect |
+|---|---|---|
+| `exclude_from_child_pages` | `1` | Hides the page from all Child Pages blocks |
+| `page_description` | Any text | Used as the card subtitle when Subtitle Source is set to *Custom Field: page_description* |
+
+**Custom Post Type** — requires a CPT that is registered as both `public` and `show_in_rest` (so it appears in the REST API). The block reads icon and subtitle data from post meta, so each post in the CPT needs the following fields:
+
+| Meta Key | Purpose | Required? |
+|---|---|---|
+| `cpt_icon` *(default)* | Icon name or class string | Optional — cards render without an icon if absent |
+| `cpt_icon_type` *(default)* | Icon library (`mdi`, `fa`, `dashicons`, `svg`) | Optional — defaults to MDI if absent |
+| *(configurable)* | Subtitle text | Optional — only used when Subtitle Source is set to *Custom Field* |
+
+The meta key names are defaults and can be changed per-block or in **Default Settings**. Any tool that writes post meta works — ACF, Meta Box, Code Snippets, or direct `update_post_meta()` calls. See [Custom Post Type Setup](#custom-post-type-setup) for an example ACF field group.
+
 ---
 
 ## The Block
