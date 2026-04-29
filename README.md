@@ -19,24 +19,33 @@ Updates are delivered through the standard WordPress update mechanism — you wi
 
 ### Prerequisites by source type
 
+The following CFs and/pr CPTs are required for the various source options:
+
 **Custom Entries** — no setup required. All content is entered directly in the block editor.
 
-**Child Pages** — no setup required for basic use. Two optional custom fields are recognized on individual pages:
+**Child Pages** — no setup required for basic use. Two optional custom fields can be used:
 
-| Meta Key | Value | Effect |
+| Meta Key | Value | Note |
 |---|---|---|
 | `exclude_from_child_pages` | `1` | Hides the page from all Child Pages blocks |
 | `page_description` | Any text | Used as the card subtitle when Subtitle Source is set to *Custom Field: page_description* |
 
-**Custom Post Type** — requires a CPT that is registered as both `public` and `show_in_rest` (so it appears in the REST API). The block reads icon and subtitle data from post meta, so each post in the CPT needs the following fields:
+**Custom Post Type** — requires a CPT that is registered as both `public` and `show_in_rest` (so it appears in the REST API). The CPT is designated in the block setup, so the slug can be set to whatever the user wants.
+The block reads icon data from post meta, so each post in the CPT needs the following fields:
 
-| Meta Key | Purpose | Required? |
+| Meta Key | Purpose | Note |
 |---|---|---|
-| `cpt_icon` *(default)* | Icon name or class string | Optional — cards render without an icon if absent |
-| `cpt_icon_type` *(default)* | Icon library (`mdi`, `fa`, `dashicons`, `svg`) | Optional — defaults to MDI if absent |
-| *(configurable)* | Subtitle text | Optional — only used when Subtitle Source is set to *Custom Field* |
+| `<cpt_name>_icon` | Icon name or class string | Cards render without an icon if absent |
+| `<cpt_name>_icon_type` | Icon library (`mdi`, `fa`, `dashicons`, `svg`) | Defaults to MDI if absent |
 
-The meta key names are defaults and can be changed per-block or in **Default Settings**. Any tool that writes post meta works — ACF, Meta Box, Code Snippets, or direct `update_post_meta()` calls. See [Custom Post Type Setup](#custom-post-type-setup) for an example ACF field group.
+The meta key names are defaults and can be changed per-block or in **Default Settings**. Any tool that writes post meta works — ACF, Meta Box, Code Snippets, or direct `update_post_meta()` calls.
+
+Subtitle data can also optionally be drawn from a custom field 
+| Meta Key | Purpose | Note |
+|---|---|---|
+| `<cpt_name>_subtitle` | Subtitle text | Used as the card subtitle when Subtitle Source is set to *Custom Field |
+
+ See [Custom Post Type Setup](#custom-post-type-setup) for an example ACF field group.
 
 ---
 
